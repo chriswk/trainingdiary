@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :get_user, :only => [:index, :new, :edit]
   before_filter :accessible_roles, :only => [:new, :edit, :show, :update, :create]
-  load_and_authorize_resource :only => [:show, :new, :destroy, :edit, :update]
+  load_and_authorize_resource :only => [:show, :destroy, :edit, :update]
 
   def index
     @users = User.accessible_by(current_ability, :index).limit(20)
@@ -36,9 +36,9 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy!
     respond_to do |format|
-      format.json { respond_to_destroyt(:ajax)}
+      format.json { respond_to_destroy(:ajax)}
       format.xml { head :ok }
-      format.html { respond_to_destory(:html)}
+      format.html { respond_to_destroy(:html)}
     end
   end
 
