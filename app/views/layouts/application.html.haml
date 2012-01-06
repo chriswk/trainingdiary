@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    %title Trainingdiary
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .topbar
+      = render "topbar"
+    .container
+      .content
+        .page-header
+          = render "page_header"
+        .row
+          .span3
+            = render "sidebar"
+          .span
+          .span12
+            = yield
+        = render "footer"
