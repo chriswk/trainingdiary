@@ -1,0 +1,7 @@
+.fill
+  .container
+    = link_to "Training Diary", root_url, { :class => "brand" }
+    %ul.nav
+      %li
+        = link_to "#{t 'links.home', :default => "Home"}", root_url
+    = render 'login_form'

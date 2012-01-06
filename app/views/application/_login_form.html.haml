@@ -1,0 +1,13 @@
+- if user_signed_in?
+  .pull-right
+    Logged in as
+    = link_to current_user.email, "#"
+    Not you?
+    = link_to "#{t 'authentication.logout', :default => "Sign out"}", destroy_user_session_path, :method => :delete
+- else
+  .pull-right
+    = form_for "user", :url => user_session_path do |f|
+      = f.text_field :login, :size => '20', :maxlength => '32', :placeholder => "#{t 'username', :default => "EMail/Username"}", :class => "input-small"
+      = f.password_field :password, :size => '15', :maxlength => '32', :placeholder => "#{t 'password', :default => "Password"}", :class => "input-small"
+      = f.submit "#{t 'authentication.log_in', :default => "Sign in"}"
+    = link_to "#{t 'authentication.register', :default => "Register"}", new_user_registration_path, {:class => "btn"}
