@@ -51,6 +51,7 @@ gem "jquery-rails"
 gem "rspec-rails", ">= 2.6.1", :group => [:development, :test]
 gem "factory_girl_rails", ">= 1.1.beta1", :group => :test
 gem "formtastic"
+gem "formtastic-bootstrap"
 gem "will_paginate"
 group :test do
   gem "autotest"
